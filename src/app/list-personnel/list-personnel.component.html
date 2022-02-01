@@ -1,35 +1,99 @@
+<br />
+
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
-    <mat-card class=".example-card">
-      <mat-card-header>
-        <mat-card-title>
-          <span class="md-headline">Suggestions du moment</span>
-        </mat-card-title>
-        <mat-card-subtitle>NOMMUSIQUE</mat-card-subtitle>
-      </mat-card-header>
-      <img
-        src="https://picsum.photos/500/500"
-        mat-card-image
-        alt="Photo of a Shiba Inu"
-      />
-      <mat-card-content> </mat-card-content>
-      <mat-card-actions layout="row" layout-align="end center">
-        <button mat-button>Mettre en favori</button>
-        <button mat-button>Supprimer des suggestions</button>
-      </mat-card-actions>
-    </mat-card>
+    <div style="padding: 20px" *ngFor="let music of musique">
+      <mat-card class=".example-card">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="md-headline">{{ music.title }}</span>
+          </mat-card-title>
+          <mat-card-subtitle>{{ music.album }}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          src="{{ music.picture }}"
+          mat-card-image
+          style="width: 368px; height: 368px"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content
+          ><p>Artiste : {{ music.artist }}</p>
+          <p>Durée : {{ music.duration }}</p></mat-card-content
+        >
+
+        <mat-card-actions layout="row" layout-align="end center">
+          <button mat-button>Mettre en favori</button>
+          <button mat-button>Supprimer des suggestions</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </section>
 
   <section *ngSwitchCase="'list'">
-    <mat-list>
-      <mat-list-item *ngFor="let music of musique" class="mat-card">
-        <img mat-list-avatar src="{{ music.picture }}" alt="Image de l'album"/>
-        <h3 mat-line>{{ music.artiste }} {{ music.titre }} </h3>
-        <p mat-line>
-          <span> {{ music.duration }} </span> — <span>{{ music.style }} </span>
-        </p>
-      </mat-list-item>
-    </mat-list>
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      style="width: 1367px"
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef>Image</th>
+        <td mat-cell *matCellDef="let element">
+          <img
+            class="petite"
+            mat-list-avatar
+            src="{{ element.picture }}"
+            alt="Image de l'album"
+          />
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="titre">
+        <th mat-header-cell *matHeaderCellDef>Titre</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
+      <ng-container matColumnDef="artiste">
+        <th mat-header-cell *matHeaderCellDef>Artiste</th>
+        <td mat-cell *matCellDef="let element">{{ element.artist }}</td>
+      </ng-container>
+      <ng-container matColumnDef="album">
+        <th mat-header-cell *matHeaderCellDef>Album</th>
+        <td mat-cell *matCellDef="let element">{{ element.album }}</td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
+      <ng-container matColumnDef="duration">
+        <th mat-header-cell *matHeaderCellDef>duration</th>
+        <td mat-cell *matCellDef="let element">{{ element.duration }}</td>
+      </ng-container>
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>Edit</th>
+        <td mat-cel *matCellDef="let row">
+          <button
+            mat-fab
+            color="primary"
+            aria-label="Example icon button with a delete icon"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <td mat-cel *matCellDef="let row">
+          <button
+            mat-fab
+            color="warn"
+            aria-label="Example icon button with a delete icon"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
   </section>
 </section>
 

@@ -1,11 +1,11 @@
 export interface Music {
   id?: string;
-  titre?: string;
+  title?: string;
   description?: string;
   album?: string;
-  artiste?: string;
+  artist?: string;
   duration?: string;
   date?: string;
-  style?: string[];
+  styles?: string[];
   picture?: string | ArrayBuffer | undefined;
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ListPersonnelService} from "../../partage/service/list-personnel.service";
-import {Person} from "../../model/Person";
+import {Music} from "../../model/Music";
+import {ListMusiqueService} from "../../partage/service/list-musique.service";
 
 @Component({
   selector: 'app-edition',
@@ -10,7 +10,7 @@ import {Person} from "../../model/Person";
 })
 export class EditionComponent implements OnInit {
 
-  employe: Person;
+  musique: Music;
 
   /**
    * Component constructor
@@ -18,26 +18,26 @@ export class EditionComponent implements OnInit {
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private readonly listPersonnelService: ListPersonnelService
+    private readonly listMusiqueService: ListMusiqueService
   ) {
-    this.employe = {};
+    this.musique = {};
   }
 
   /**
    * OnInit implementation
    */
   ngOnInit() {
-    this.route.data.subscribe(( employe: any) => (this.employe = employe.employe));
+    this.route.data.subscribe(( musique: any) => (this.musique = musique.musique));
   }
 
-  submit(employe: any) {
-    this.listPersonnelService.update(employe).subscribe(() => {
-      this.router.navigate(['/listPersonnel']).then(r => null);
+  submit(musique: any) {
+    this.listMusiqueService.update(musique).subscribe(() => {
+      this.router.navigate(['/listMusique']).then(r => null);
     });
   }
 
   cancel() {
-    this.router.navigate(['/listPersonnel']).then(r => null);
+    this.router.navigate(['/listMusique']).then(r => null);
   }
 
 }

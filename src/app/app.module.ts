@@ -29,6 +29,9 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {SuggestionsComponent} from "./suggestions/suggestions.component";
+import {AjoutPopupComponent} from "./list-personnel/ajout-popup/ajout-popup.component";
+import {EditionComponent} from "./list-personnel/edition/edition.component";
+import {MatTableModule} from "@angular/material/table";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -42,7 +45,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     ListPersonnelComponent,
     FormulaireComponent,
-    SuggestionsComponent
+    SuggestionsComponent,
+    AjoutPopupComponent,
+    EditionComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

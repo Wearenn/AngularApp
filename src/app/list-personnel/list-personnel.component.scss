@@ -1,6 +1,10 @@
 h1 {
   text-align: center;
 }
+.example-card {
+  padding: 30px;
+  max-width: 400px;
+}
 
 section {
   display: flex;
@@ -12,7 +16,12 @@ section {
 .list {
   padding-bottom: 100px;
 }
-
+.petite {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border-radius: 50%;
+}
 .dialog-modal {
   top: 0;
   position: fixed;
@@ -43,7 +52,8 @@ mat-list-item {
 }
 
 mat-list-item:hover {
-  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12);
 }
 
 .buttons-fab {
@@ -56,5 +66,4 @@ mat-list-item:hover {
 }
 
 .buttons-fab:hover .button-add {
-
 }
