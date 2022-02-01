@@ -89,11 +89,11 @@ export class FormulaireComponent implements OnInit {
     return new FormGroup({
       id: new FormControl(''),
       title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-      description: new FormControl('', Validators.minLength(2)),
-      album: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-      artiste: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+      description: new FormControl('', Validators.minLength(10)),
+      album: new FormControl('', Validators.required),
+      artist: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
       duration: new FormControl(''),
-      date: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^(0[1-9]|[12][0-9]|3[01])$\-(0[1-9]|1[012])\-\d{4}')])),
+      date: new FormControl('', Validators.pattern('^(0[1-9]|[12][0-9]|3[01])$\-(0[1-9]|1[012])\-\d{4}')),
       styles: new FormControl(''),
       picture: new FormControl(''),
     });

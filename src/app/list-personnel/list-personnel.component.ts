@@ -44,10 +44,11 @@ export class ListPersonnelComponent implements OnInit {
     //this.dataSource = new MatTableDataSource(this.musique);
   }
 
-  delete(person: Person) {
-    this.listMusiqueService.delete(person.id!).subscribe((musique) => {
+  delete(music: Music) {
+    this.listMusiqueService.delete(music.id!).subscribe((musique) => {
       this.musique = musique;
     });
+    window.location.reload();
   }
 
   switchView() {
@@ -68,6 +69,7 @@ export class ListPersonnelComponent implements OnInit {
         this.musique = musique;
         this.hideDialog();
       });
+    window.location.reload();
   }
 
   update(musique: Music) {
@@ -78,6 +80,7 @@ export class ListPersonnelComponent implements OnInit {
         this.musique = musique;
         this.hideDialog();
       });
+    window.location.reload();
   }
 
   showDialog() {
