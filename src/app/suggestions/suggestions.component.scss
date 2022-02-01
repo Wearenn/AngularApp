@@ -1,0 +1,14 @@
+.example-card {
+  max-width: 400px;
+}
+.main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button#refresh {
+  float: right;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}

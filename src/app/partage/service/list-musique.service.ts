@@ -19,7 +19,6 @@ export class ListMusiqueService {
     if (environment.backend.port) {
       baseUrl += `:${environment.backend.port}`;
     }
-    baseUrl += "/api-docs/";
 
     // build all backend urls
     Object.keys(environment.backend.endpoints).forEach(

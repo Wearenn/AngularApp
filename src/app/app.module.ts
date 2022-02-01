@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AccueilComponent } from './accueil/accueil.component';
 import {MatIconModule} from "@angular/material/icon";
-import { CarteComponent } from './partage/carte/carte.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { HeaderComponent } from './header/header.component';
 import {MatListModule} from "@angular/material/list";
@@ -29,6 +28,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {SuggestionsComponent} from "./suggestions/suggestions.component";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -38,11 +38,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     AccueilComponent,
-    CarteComponent,
     DrawerComponent,
     HeaderComponent,
     ListPersonnelComponent,
-    FormulaireComponent
+    FormulaireComponent,
+    SuggestionsComponent
   ],
   imports: [
     BrowserModule,

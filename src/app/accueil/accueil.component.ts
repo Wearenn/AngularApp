@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ListPersonnelService} from "../partage/service/list-personnel.service";
-import {Person} from "../model/Person";
+import {ListMusiqueService} from "../partage/service/list-musique.service";
 
 @Component({
   selector: 'app-accueil',
@@ -8,17 +7,14 @@ import {Person} from "../model/Person";
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
-  employe: Person = {};
+  nbMusique: number = 0;
 
-  constructor(private readonly listPersonnelService: ListPersonnelService) {}
+  constructor(private readonly listMusiqueService: ListMusiqueService) {}
 
   ngOnInit(): void {
-    this.random();
-  }
-
-  random() {
-    this.listPersonnelService.fetchRandom().subscribe(employe => {
-      this.employe = employe;
+    this.listMusiqueService.fetch().subscribe(musique => {
+      this.nbMusique = musique.length;
     });
   }
+
 }
